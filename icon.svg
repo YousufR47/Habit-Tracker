@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background gradient: deep navy to rich dark purple -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0e0e1c"/>
+      <stop offset="100%" stop-color="#13111f"/>
+    </linearGradient>
+
+    <!-- Tier 1 bar gradient: violet -->
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#9b8afb"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+
+    <!-- Tier 2 bar gradient: sky blue -->
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6cb4f5"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+
+    <!-- Tier 3 bar gradient: muted slate -->
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#555550"/>
+      <stop offset="100%" stop-color="#6b6b66"/>
+    </linearGradient>
+
+    <!-- Checkmark ring glow -->
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Subtle inner shadow for depth -->
+    <filter id="inset" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+      <feOffset dx="0" dy="4"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadow"/>
+      <feFlood flood-color="#000" flood-opacity="0.35" result="color"/>
+      <feComposite in="color" in2="shadow" operator="in" result="shadow2"/>
+      <feMerge><feMergeNode in="shadow2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- App icon rounded rect background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Subtle vignette overlay for depth -->
+  <radialGradient id="vig" cx="50%" cy="50%" r="72%">
+    <stop offset="60%" stop-color="transparent"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0.45"/>
+  </radialGradient>
+  <rect width="512" height="512" rx="112" fill="url(#vig)"/>
+
+  <!-- ── Three stacked habit bars ── -->
+
+  <!-- Tier 1: longest, violet (top habit) -->
+  <rect x="72" y="152" width="294" height="52" rx="26" fill="url(#g1)"/>
+
+  <!-- Tier 2: medium, blue -->
+  <rect x="72" y="230" width="224" height="52" rx="26" fill="url(#g2)" opacity="0.85"/>
+
+  <!-- Tier 3: short, slate -->
+  <rect x="72" y="308" width="150" height="52" rx="26" fill="url(#g3)" opacity="0.65"/>
+
+  <!-- ── Completion checkmark circle (Tier 1, right side) ── -->
+  <!-- Ring -->
+  <circle cx="400" cy="178" r="44" fill="#0e0e1c" opacity="0.85"/>
+  <circle cx="400" cy="178" r="36" fill="none" stroke="#5fb88a" stroke-width="7" filter="url(#glow)"/>
+  <!-- Checkmark -->
+  <path d="M382 178 l13 14 24-26"
+        stroke="#5fb88a" stroke-width="7.5"
+        fill="none" stroke-linecap="round" stroke-linejoin="round"
+        filter="url(#glow)"/>
+
+  <!-- ── Partial indicator circle (Tier 2) ── -->
+  <circle cx="330" cy="256" r="34" fill="#13111f" opacity="0.9"/>
+  <circle cx="330" cy="256" r="26" fill="none" stroke="#e8b84b" stroke-width="6" stroke-dasharray="82 82" stroke-dashoffset="26" stroke-linecap="round"/>
+</svg>
