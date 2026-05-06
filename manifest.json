@@ -1,0 +1,30 @@
+{
+  "name": "Habits",
+  "short_name": "Habits",
+  "description": "A dark mobile habit tracker with local-first goals, stats, and backups.",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "categories": ["health", "lifestyle", "productivity"],
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#191919",
+  "theme_color": "#080810",
+  "shortcuts": [
+    {
+      "name": "Today",
+      "short_name": "Today",
+      "url": "./index.html",
+      "description": "Open today's habits"
+    }
+  ],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
